@@ -13,14 +13,14 @@ class CashRegister
     quantity.times do
       items << title
     end
-    self
+    self.last_transaction = price * quantity
   end
   
   def apply_discount
     if @discount == 0 || @discount == nil
       return "There is no discount to apply."
     else
-      @total -= (@total * @discount/100) 
+      self.total -= (@total * @discount/100) 
       return "After the discount, the total comes to $#{@total}."
     end
   end
